@@ -319,7 +319,7 @@ if __name__ == '__main__':
 		for _, perf in algs.iteritems() :
 			perf.compute_stats()
 
-                        #algorithms = [ 'random', 'brfs', 'iw1', 'uct', 'bfs' ]#, 'ucs' ] #,'iw1-ucs'
+	#algorithms = [ 'random', 'brfs', 'iw1', 'uct', 'bfs' ]#, 'ucs' ] #,'iw1-ucs'
 	algorithms = [ 'iw1', 'uct', 'bfs' ]#, 'ucs' ] #,'iw1-ucs'
 	# and finally, we write the table summarizing the results
 	with open( 'results.csv', 'w' ) as outstream :

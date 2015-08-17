@@ -55,30 +55,20 @@ def main() :
 		
 	num_runs = 5
 
-	#agents = [ 	( 'iw1-ucs', '-player_agent search_agent -search_method iw1-ucs' ) ]
-	#		( 'ucs', '-player_agent search_agent -search_method ucs' ) ]
-
 	agents = [ 	
-		        #( 'random', '-player_agent random_agent' ),
-			#( 'brfs', '-player_agent search_agent -search_method brfs' ),
-		        ##( 'iw11', '-player_agent search_agent -search_method iw11' )
 			( 'iw1', '-player_agent search_agent -search_method iw1' )
-		        #( 'bfs', '-player_agent search_agent -search_method bfs' )
-		        #( 'uct', '-player_agent search_agent -search_method uct' )
+
 		 ]
 
-#	agents = [ 	( 'iw1', '-player_agent search_agent -search_method iw1' ),
-#			( 'uct', '-player_agent search_agent -search_method uct' )
-#		 ]
 
 
-        command_template = './ale -display_screen false -discount_factor 0.995 -randomize_successor_novelty true -record_trajectory %(record)s -max_sim_steps_per_frame 100000 -random_seed %(i)d %(agent_cmd)s %(rom_path)s'
+        command_template = './ale -display_screen false -discount_factor 0.995 -randomize_successor_novelty true -record_trajectory %(record)s -max_sim_steps_per_frame 150000 -random_seed %(i)d %(agent_cmd)s %(rom_path)s'
 
         inputs = []
 	for game, rom_path in games :
 		for agent, agent_cmd in agents :
 			#if 'iw1' in agent and 'pong' not in game: continue
-			folder = 'experiments_100k_reuse/%(game)s/%(agent)s'%locals()
+			folder = 'experiments_150k_reuse/%(game)s/%(agent)s'%locals()
 			if not os.path.exists( folder ) :
 				os.system( 'mkdir -p %(folder)s'%locals() )
 			for i in range( 0, num_runs ) :
